@@ -1,0 +1,90 @@
+{
+	"name": "map-geo",
+	"version": "0.0.1",
+	"description": "echarts map geo json",
+	"main": "./dist/mapGeo.min.js",
+	"files": [
+		"src",
+		"dist",
+		"yarn.lock"
+	],
+	"scripts": {
+		"lint": "eslint --ext .js",
+		"lint:fix": "eslint --fix --ext .js",
+		"build": "yarn encode && cross-env NODE_ENV=production rollup -c build/rollup.prod.js",
+		"dev": "rollup -c build/rollup.dev.js --watch",
+        "serve": "npm run dev",
+        "encode": "node ./build/encode.js",
+		"lint-staged": "pretty-quick --staged",
+		"test": "jest --coverage"
+	},
+	"keywords": [
+		"mapGeo"
+	],
+	"author": "Hyhello",
+	"license": "MIT",
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"**/*.js": [
+			"eslint --ext .js",
+			"prettier --write",
+			"git add ."
+		]
+	},
+	"engines": {
+		"node": ">=4.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/node": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"@babel/register": "^7.4.4",
+		"@commitlint/cli": "^8.0.0",
+		"@commitlint/config-conventional": "^8.0.0",
+		"babel-eslint": "^10.0.2",
+		"babel-jest": "^24.8.0",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+		"chalk": "^2.4.2",
+		"cross-env": "^5.2.0",
+		"del": "^5.1.0",
+		"eslint": "^6.0.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-config-prettier": "^5.0.0",
+		"eslint-friendly-formatter": "^4.0.1",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"eslint-plugin-flowtype": "^3.11.1",
+		"eslint-plugin-import": "^2.17.3",
+		"eslint-plugin-jest": "^22.7.1",
+		"eslint-plugin-prettier": "^3.1.0",
+		"flow-bin": "^0.102.0",
+		"glob": "^7.1.6",
+		"husky": "^2.4.1",
+		"jest": "^24.8.0",
+		"lint-staged": "^8.2.1",
+		"prettier": "^1.18.2",
+		"pretty-quick": "^1.11.1",
+		"rollup": "^1.15.6",
+		"rollup-plugin-alias": "^1.5.2",
+		"rollup-plugin-babel": "^4.3.2",
+		"rollup-plugin-commonjs": "^10.0.0",
+		"rollup-plugin-eslint": "^6.0.0",
+		"rollup-plugin-filesize": "^6.1.1",
+		"rollup-plugin-flow-no-whitespace": "^1.0.0",
+		"rollup-plugin-json": "^4.0.0",
+		"rollup-plugin-livereload": "^1.0.1",
+		"rollup-plugin-node-resolve": "^5.0.3",
+		"rollup-plugin-replace": "^2.2.0",
+		"rollup-plugin-require-context": "^1.0.0",
+		"rollup-plugin-serve": "^1.0.1",
+		"rollup-plugin-terser": "^5.0.0",
+		"rollup-watch": "^4.3.1"
+	},
+	"dependencies": {
+		"zrender": "^4.1.2"
+	}
+}
