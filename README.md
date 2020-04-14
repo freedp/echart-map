@@ -1,3 +1,3 @@
-# progress
+# echarts
 
-基于 canvas 的进度条
+echarts map geo
